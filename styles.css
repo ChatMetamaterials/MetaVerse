@@ -1,0 +1,258 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px; /* Fixed sidebar width */
+    background-color: #e9ecef; /* Lighter grey background */
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensure it takes full height */
+}
+
+/* Sidebar header */
+.sidebar h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* Sidebar logo */
+.sidebar .logo {
+    width: 240px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Sidebar navigation */
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+/* Sidebar links */
+.sidebar nav ul li a {
+    color: #333; /* Dark text for links */
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover effect for links */
+.sidebar nav ul li a:hover {
+    background-color: #f1f3f5; /* Light grey hover effect */
+    color: #333; /* Ensure text color remains dark */
+}
+
+/* Active link styles */
+.sidebar nav ul li a.active {
+    background-color: #f1f3f5; /* Active background */
+    color: #333; /* Active text color */
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding: 20px;
+    background-color: #e9ecef; /* Matching light footer */
+    text-align: center;
+}
+
+footer .github-logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Content area */
+/* Content area */
+.content {
+    flex-grow: 1;  /* Takes remaining space */
+    background-color: white; /* Light grey for content background */
+    padding: 20px; /* Spacing inside the content */
+    padding-left: 20px; /* Increase left padding for more space from sidebar */
+    max-width: 1250px; /* Maximum width of the content area */
+    margin-left: auto; /* Center align the content when there is more space */
+    margin-right: auto; /* Center align the content when there is more space */
+    overflow-y: auto;
+    height: 100%; /* Ensure it takes full height */
+}
+
+
+/* Integration card styles (Unchanged) */
+.integrations {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+/* Integration card styling adjustments */
+.integration-card {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+.card-header {
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.card-logo {
+    width: 30px; /* Fixed width for the logo */
+    height: 30px; /* Fixed height for the logo */
+    margin-right: 10px; /* Space between the logo and title */
+}
+
+.integration-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0; /* Remove margin to align title closely to the logo */
+}
+
+.integration-card p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px; /* Space after title for paragraph */
+}
+
+.integration-card a {
+    color: #2a77ff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.integration-card a:hover {
+    text-decoration: underline;
+}
+
+/* Ensuring consistent container and content area styling */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: white;
+    padding: 20px;
+    padding-left: 20px;
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    height: 100%;
+}
+
+
+/* Hidden class to hide sections */
+.hidden {
+    display: none;
+}
+/* Code block styling */
+.code-block {
+    background-color: #f5f5f5; /* Light grey background similar to OpenAI */
+    color: #333;
+    padding: 4px;
+    border-radius: 8px;
+    position: relative;
+    margin-top: 2px;
+    min-height: 2px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Code block header with Copy icon */
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Copy button icon */
+.copy-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.copy-btn img {
+    width: 18px; /* Small icon size */
+    height: 18px;
+}
+
+/* Text area (preformatted code) */
+pre {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #333;
+}
+
+/* Section for API */
+#api1 {
+    margin-top: 30px;
+}
+
+#api1 h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+#api1 h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 20px;
+}
+
+#api1 p {
+    font-size: 16px;
+    color: #666;
+}
+
+span.code-function {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: #333;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+}
