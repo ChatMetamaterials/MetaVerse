@@ -79,7 +79,7 @@
                     <pre>
 import requests
 import json
-from encrypt_password_strings import function_link_classification, function_link_basic_cell, function_link_deformation_recognition, multi_single_cells_algorithms_url
+from encrypt_password_strings import function_link_classification, function_link_basic_cell, function_link_deformation_recognition,function_link_research_innovation, function_link_universal_metamaterials, function_link_shoe, multi_single_cells_algorithms_url, deformation_pattern_generation_algorithms_url, research_innovation_generation_algorithms_url, architecture_data_algorithms_url, extended_architecture_data_algorithms_url
 
 server_url = "http://43.159.130.228/"
 
@@ -349,8 +349,8 @@ write_json_to_txt(data,file_name)</pre></div>
                         </button>
                     </div>
                     <pre>
-{'data': [[0.5, 10, None, None, None], [0.7, 25, None, None, None]], 'message': 'success', 'status': 200}</pre></div>
-                <p>The <span class="code-function">write_json_to_txt</span> function saves this information to a .txt file specified by the <span class="code-function">file_name</span>. Upon successful execution, the following message will confirm that the data has been stored correctly:</p>
+{'data': [[None, 10, None, None, None], [None, 25, None, None, None]], 'message': 'success', 'status': 200}</pre></div>
+                <p>The <span class="code-function">write_json_to_txt</span> function saves this information to a .txt file specified by the <span class="code-function">file_name</span>. Note that the <span class="code-function">null</span> will be presented instead in the .txt file. Upon successful execution, the following message will confirm that the data has been stored correctly:</p>
                 <div class="code-block">
                     <div class="code-header">
                         <span>Displayed texts</span>
@@ -379,7 +379,7 @@ Data successfully written to Example_basic_cells.txt</pre></div>
                     <pre>
 from source_server_interface import *
 
-Input = "Please design a metamaterial (default size), that fails first with the letter indicated in the image."
+Input = "Please design a metamaterial (default size), that fails first with the letter S indicated in the image."
 Image = "https://s3.bmp.ovh/imgs/2025/02/19/46a35e29cf2b3385.png"
 file_name = "Example_deformation_recognition.txt"
 data = deformation_recognition_API_local_calling (Input, Image)
@@ -424,7 +424,7 @@ Data successfully written to Example_deformation_recognition.txt</pre></div>
                     <pre>
 from source_server_interface import *
 
-Input = "Invent a metamaterial containing precipitates triggering precipitation toughening."
+Input = "Create a metamaterial containing precipitates triggering precipitation toughening."
 file_name = "Example_research_innovation.txt"
 Image = ""
 data = research_innovation_API_local_calling (Input)
@@ -558,7 +558,7 @@ Data successfully written to Example_universal_metamaterial.txt</pre></div>
                     </div>
                     <pre>
 [[0.5, 10, None, None, None], [0.7, 25, None, None, None]]</pre></div>
-                <p>The <span class="code-function">multi_single_cells_algorithms</span> should be used to obtain ready-to-use architectural metadata using the following code expressions:</p>
+                <p>Note that to load these data, one need to refer to the Processing JSON objects or retrieving data from JSON information stored in a .txt file section in Getting Started. The <span class="code-function">multi_single_cells_algorithms</span> should be used to obtain ready-to-use architectural metadata using the following code expressions:</p>
                 <div class="code-block">
                     <div class="code-header">
                         <span>Processing basic cells metadata in Server_caller.py</span>
@@ -567,7 +567,7 @@ Data successfully written to Example_universal_metamaterial.txt</pre></div>
                         </button>
                     </div>
                     <pre>
-metadata_basic_cells = [[0.5, 10, None, None, None], [0.7, 25, None, None, None]]
+metadata_basic_cells = extract_data_txt("Example_basic_cells.txt")
 architectural_metadata = multi_single_cells_algorithms(metadata_basic_cells)</pre></div>
                 <p>The <span class="code-function">metadata_basic_cells</span> contains metadata output by the <span class="code-function">basic_cells_API_local_calling</span> API, and the <span class="code-function">architectural_metadata</span> is the ready-to-use architectural metadata, formatted as follows:</p>
                 <div class="code-block">
@@ -590,7 +590,7 @@ architectural_metadata = multi_single_cells_algorithms(metadata_basic_cells)</pr
                         </button>
                     </div>
                     <pre>
-metadata_deformation_recognition = [[2, [1, 1, 1]], [1, [1, 1, 2]], [2, [1, 1, 3]], ...]
+metadata_deformation_recognition = extract_data_txt("Example_deformation_recognition.txt")
 architectural_metadata = deformation_pattern_generation_algorithms(metadata_deformation_recognition)</pre></div>
                 <p>The metadata_deformation_recognition is the metadata generated by the <span class="code-function">deformation_recognition_API_local_calling</span> API. For example:</p>
                 <div class="code-block">
@@ -621,7 +621,7 @@ architectural_metadata = deformation_pattern_generation_algorithms(metadata_defo
                         </button>
                     </div>
                     <pre>
-metadata_research_innovation = [[[1, 1, 1], [None, None, 6.42, None]], [[1, 1, 2], [None, None, 0.17, None]],...]
+metadata_research_innovation = extract_data_txt("Example_research_innovation.txt")
 architectural_metadata = research_innovation_generation_algorithms(metadata_research_innovation)</pre></div>
                 <h3>Generation of architecture design data</h3>
                 <p>Once the <span class="code-function">architectural_metadata</span> is obtained, the <span class="code-function">architecture_data_algorithms</span> can be used to generate architectures from the basic cells design, deformation recognition, research and innovation, and the product design APIs:</p>
@@ -635,7 +635,7 @@ architectural_metadata = research_innovation_generation_algorithms(metadata_rese
                     </div>
                     <pre>
 file_name = "architectural_data.txt"
-architectures = architecture_data_algorithms(architectural_metadata)
+architectures = architecture_data_algorithms(extract_data_json(architectural_metadata))
 write_json_to_txt(architectures, file_name)</pre></div>
                 <p>The <span class="code-function">architectures</span> generated will be exported into <span class="code-function">architectural_data.txt</span> for use in modeling. For metadata obtained from the universal metamaterial design API, for example:</p>
                 <div class="code-block">
@@ -657,7 +657,7 @@ write_json_to_txt(architectures, file_name)</pre></div>
                     </div>
                     <pre>
 file_name = "irrational_architectural_data.txt"
-metadata_extended = [[[1.2245889120566722, 13.872196220437678, 6.789799909733694], 4], [[3.8866278234295946, 12.625731780281152, 13.383528379856875], 5], [[12.361206017519217, 15.610705020227929, 17.685192523597088],...]
+metadata_extended = extract_data_txt("Example_universal_metamaterial.txt")
 Type = "irrational"
 architectures = extended_architecture_data_algorithms(metadata_extended, Type)
 write_json_to_txt(architectures, file_name)</pre></div>
